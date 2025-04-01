@@ -1,0 +1,16 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: transparent;
+    /*text-shadow: 2px 2px white;*/
+}
+#back{
+    background: url("/assets/art_pixels.png");
+    background-size: cover;
+    background-clip: text;
+    h1{
+        font-size: 60px;
+    }
+}

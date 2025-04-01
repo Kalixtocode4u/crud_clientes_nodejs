@@ -1,24 +1,31 @@
-<main class="container-fluid bg-white p-2">
-    <a href="http://localhost:5000/cliente">Voltar</a>
-    <h2>Criar Cliente</h2>
-    <section class="container bg-light p-2">
-        <form action="http://localhost:5000/api/cliente" method="POST">
-            <label class="label-control">Nome</label>
-            <input type="text" name="nome" class="form-control m-2">
-            
-            <label class="label-control">Email</label>
-            <input type="text" name="email" class="form-control m-2">
+<main>
+    <section class="container">
+        <a href="/cliente" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <form action="/api/cliente" method="POST">
+                <h2>Criar Cliente</h2>
+                <label class="label-control m-3">Nome
+                    <input type="text" name="nome" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Email
+                    <input type="text" name="email" class="form-control">
+                </label>
 
-            <label class="label-control">Senha</label>
-            <input type="text" name="senha" class="form-control m-2">
+                <label class="label-control m-3">Senha
+                    <input type="text" name="senha" class="form-control">
+                </label>
 
-            <label class="label-control">Documento</label>
-            <input type="text" name="documento" class="form-control m-2">
+                <label class="label-control m-3">Documento
+                    <input type="text" name="documento" class="form-control">
+                </label>
 
-            <label class="label-control">Telefone</label>
-            <input type="text" name="telefone" class="form-control m-2">
+                <label class="label-control m-3">Telefone
+                    <input type="text" name="telefone" class="form-control">
+                </label>
 
-            <button type="submit" class="btn btn-primary m-2">Criar</button>
-        </form>
+                <button type="submit" class="btn btn-primary my-4">Criar</button>
+            </form>
+        </section>
     </section>
 </main>

@@ -1,12 +1,14 @@
 <main>
-    <a href="http://localhost:5000/cliente">Voltar</a>
-    <h2>Detalhes Clientes</h2>
-    <section>
-        <p>Id: {{cliente.id}}</p>
-        <p>Nome: {{cliente.nome}}</p>
-        <p>Email: {{cliente.email}}</p>
-        <p>Senha: {{cliente.senha}}</p>
-        <p>Documento: {{cliente.documento}}</p>
-        <p>Telefone: {{cliente.telefone}}</p>
+    <section class="container"> 
+        <a href="/cliente" class="btn btn-primary my-3">Voltar</a>
+        <section class="w-50 mx-0 container shadow rounded p-3">
+            <h2>Detalhes Clientes</h2>
+            <p>Id: {{cliente.id}}</p>
+            <p>Nome: {{cliente.nome}}</p>
+            <p>Email: {{cliente.email}}</p>
+            <p>Senha: {{cliente.senha}}</p>
+            <p>Documento: {{cliente.documento}}</p>
+            <p>Telefone: {{cliente.telefone}}</p>
+        </section>
     </section>
 </main>

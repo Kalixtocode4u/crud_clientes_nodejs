@@ -1,8 +1,8 @@
-<main class="container-fluid bg-light p-2">
-    <h2>Lista Clientes</h2>
-    <section class="container bg-white p-2 rounded">
-        <table class="border border-black text-center w-100">
-            <thead class="p-1">
+<main class="container-fluid p-2">
+    <h2 class="my-3 ms-5">Lista Clientes</h2>
+    <section class="container bg-white p-2 rounded shadow">
+        <table class="text-center w-100">
+            <thead >
                 <tr class="p-2">
                     <th class="p-2">Id</th>
                     <th class="p-2">Nome</th>
@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 {{#each clientes}}
-                <tr class="border border-black p-2">
+                <tr class="border-top border-bottom border-black p-2">
                     <td class="p-2">{{this.id}}</td>
                     <td class="p-2">{{this.nome}}</td>
                     <td class="p-2">{{this.email}}</td>
@@ -23,15 +23,14 @@
                     <td class="p-2">{{this.documento}}</td>
                     <td class="p-2">{{this.telefone}}</td>
                     <td class="p-2">
-                        <a href="http://localhost:5000/cliente/detalhes/{{this.id}}" class="btn btn-light">Detalhes</a>
-                        <a href="http://localhost:5000/cliente/editar/{{this.id}}" class="btn btn-light">Editar</a>
-                        <a href="http://localhost:5000/api/cliente/delete/{{this.id}}" class="btn btn-danger">Excluir</a>
+                        <a href="/cliente/detalhes/{{this.id}}" class="btn btn-light">Detalhes</a>
+                        <a href="/cliente/editar/{{this.id}}" class="btn btn-light">Editar</a>
+                        <a href="/api/cliente/delete/{{this.id}}" class="btn btn-danger">Excluir</a>
                     </td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
-        <a href="http://localhost:5000/cliente/criar" class="btn btn-dark m-3">Criar Novo Cliente</a>
+        <a href="/cliente/criar" class="btn btn-dark m-3">Criar Novo Cliente</a>
     </section>
 </main>
-<script src="http://localhost:5000/scripts/script.js"></script>
