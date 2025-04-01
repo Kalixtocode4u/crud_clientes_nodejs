@@ -1,0 +1,32 @@
+{
+  "name": "wwweb",
+  "version": "1.0.0",
+  "description": "aplicaçao web com sequelize",
+  "keywords": [
+    "mvc",
+    "sequelize",
+    "web"
+  ],
+  "license": "ISC",
+  "author": "Carlos",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon --exec node src/index.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "body-parser": "^2.2.0",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "mariadb": "^3.4.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2"
+  }
+}

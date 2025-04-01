@@ -1,0 +1,50 @@
+@host = localhost
+@port = 5000
+@hostname = http://{{host}}:{{port}}
+
+GET http://localhost:5000/
+
+###
+
+GET {{hostname}}/api/cliente
+
+###
+
+GET {{hostname}}/api/cliente/2
+
+###
+
+POST {{hostname}}/api/cliente
+Content-Type: application/json
+
+{
+    "nome": "Teste",
+    "email": "teste@email.com",
+    "senha": "123456",
+    "documento": "69.292.929/0001-91",
+    "telefone": "8237-2287"
+}
+
+###
+
+PUT {{hostname}}/api/cliente?id=1
+Content-Type: application/json
+
+{
+    "nome": "Tesste",
+    "email": "tesste@email.com",
+    "senha": "1233456",
+    "documento": "79.292.999/0001-91",
+    "telefone": "8237-7287"
+}
+
+### outra forma de atualizar
+POST {{hostname}}/api/cliente/editar/1
+
+###
+
+DELETE {{hostname}}/api/cliente?id=1
+
+### outra forma de deletar um dado
+
+GET {{hostname}}/api/cliente/delete/1
