@@ -1,16 +1,42 @@
 html, body{
     margin: 0;
     padding: 0;
+    /*background-color: rgb(33, 37, 41);*/
 }
-h1{
-    color: transparent;
-    /*text-shadow: 2px 2px white;*/
+
+#home-bg{
+    /*background: radial-gradient(circle, rgba(30, 144, 255, 0.9) 10%, transparent 40%),
+                radial-gradient(circle, rgba(255, 30, 30, 0.9) 10%, transparent 40%),
+                radial-gradient(circle, rgba(255, 240, 30, 0.9) 10%, transparent 40%),
+                radial-gradient(circle, rgba(56, 255, 30, 0.9) 10%, transparent 40%), rgba(189, 154, 255, 0.9);
+    background-size: 500px, 780px, 1000px, 300px;
+    background-position: 20px 70px, center center, 0px 0px, 100px -50px;
+    background-repeat: no-repeat;*/
 }
+
 #back{
-    background: url("/assets/art_pixels.png");
-    background-size: cover;
+    /*background: url("/assets/art_psi.png");
+    background: linear-gradient( in hsl shorter hue, white 30%, #91c9ff 59%, dodgerblue 60%);*/
+    background-size: contain;
     background-clip: text;
     h1{
+        /*color: transparent;*/
+        color: white;
         font-size: 60px;
     }
+}
+
+#myicon{
+    background: linear-gradient( in hsl shorter hue, white 20%, #91c9ff 80%, dodgerblue 100%);
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: white;
+    left: 400px;
 }

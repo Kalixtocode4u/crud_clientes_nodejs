@@ -1,0 +1,41 @@
+<main class="h-75 container-fluid">
+    <a href="/" class="btn btn-primary my-3">Voltar</a>
+    <section class="card h-100 w-25 m-auto">
+        <div class="card-header">
+            <h1>Cadastro</h1>
+        </div>
+        <form action="/api/cliente" method="POST" class="card-body">
+            <div class="mb-3">
+                <label class="label-control">Nome
+                    <input type="text" name="nome" class="form-control">
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <label class="label-control">Email
+                    <input type="text" name="email" class="form-control">
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <label class="label-control">Senha
+                    <input type="password" name="senha" class="form-control">
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <label class="label-control">Cpf/Cnpj
+                    <input type="text" name="documento" class="form-control">
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <label class="label-control">Telefone
+                    <input type="text" name="telefone" class="form-control">
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+        </form>
+    </section>
+</main>

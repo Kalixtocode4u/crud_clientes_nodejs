@@ -13,7 +13,10 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.engine("handlebars", engine())
+app.engine("handlebars", engine({
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true,
+}))
 app.set("view engine", "handlebars")
 app.set("views", "./views")
 
@@ -37,4 +40,12 @@ app.listen(5000, () => {
 // npm i body-parser
 
 //npx sequelize-cli model:generate --name Cliente --attributes nome:string,email:string,senha:string,documento:string,telefone:string
+
+/* Falta o cargo se é vendedor, vendedor externo, admin, estoquista, faturista.
+ * Fazer o atributo acesso_cliente
+ *
+ */
+
 //npx sequelize-cli db:migrate
+
+//npx sequelize-cli model:generate --name Produto --attributes nome:string,codProduto:integer,descricao:string,precoUnitario:decimal,quantidade:integer

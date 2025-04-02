@@ -48,3 +48,7 @@ DELETE {{hostname}}/api/cliente?id=1
 ### outra forma de deletar um dado
 
 GET {{hostname}}/api/cliente/delete/1
+
+###
+
+GET http://localhost:5000/cliente/search?nome=Teste
