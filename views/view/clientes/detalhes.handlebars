@@ -1,14 +1,36 @@
 <main>
     <section class="container"> 
         <a href="/cliente" class="btn btn-primary my-3">Voltar</a>
-        <section class="w-50 mx-0 container shadow rounded p-3">
+        <section id="tabela" class="w-50 mx-0 container shadow rounded p-3">
             <h2>Detalhes Clientes</h2>
-            <p>Id: {{cliente.id}}</p>
-            <p>Nome: {{cliente.nome}}</p>
-            <p>Email: {{cliente.email}}</p>
-            <p>Senha: {{cliente.senha}}</p>
-            <p>Documento: {{cliente.documento}}</p>
-            <p>Telefone: {{cliente.telefone}}</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{cliente.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Nome</td>
+                        <td>{{cliente.nome}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{cliente.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Senha</td>
+                        <td>{{cliente.senha}}</td>
+                    </tr>
+                    <tr>
+                        <td>Documento</td>
+                        <td>{{cliente.documento}}</td>
+                    </tr>
+                    <tr>
+                        <td>Telefone</td>
+                        <td>{{cliente.telefone}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </section>
 </main>

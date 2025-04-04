@@ -1,0 +1,31 @@
+<main>
+    <section class="container">
+        <a href="/produto" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <h2>Editar Produto</h2>
+            <form action="/api/produto/editar/{{produto.id}}" method="POST">
+                <label class="label-control">Nome
+                    <input type="text" name="nome" value="{{produto.nome}}" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Cod. Produto
+                    <input type="text" name="codProduto" value="{{produto.codProduto}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">descrição
+                    <input type="text" name="descricao" value="{{produto.descricao}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Preço Unitario
+                    <input type="text" name="precoUnitario" value="{{produto.precoUnitario}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Quantidade
+                    <input type="text" name="quantidade" value="{{produto.quantidade}}" class="form-control">
+                </label>
+
+                <button type="submit" class="btn btn-primary m-2">Editar</button>
+            </form>
+        </section>
+    </section>
+</main>

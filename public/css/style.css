@@ -1,29 +1,11 @@
 html, body{
     margin: 0;
     padding: 0;
-    /*background-color: rgb(33, 37, 41);*/
 }
 
-#home-bg{
-    /*background: radial-gradient(circle, rgba(30, 144, 255, 0.9) 10%, transparent 40%),
-                radial-gradient(circle, rgba(255, 30, 30, 0.9) 10%, transparent 40%),
-                radial-gradient(circle, rgba(255, 240, 30, 0.9) 10%, transparent 40%),
-                radial-gradient(circle, rgba(56, 255, 30, 0.9) 10%, transparent 40%), rgba(189, 154, 255, 0.9);
-    background-size: 500px, 780px, 1000px, 300px;
-    background-position: 20px 70px, center center, 0px 0px, 100px -50px;
-    background-repeat: no-repeat;*/
-}
-
-#back{
-    /*background: url("/assets/art_psi.png");
-    background: linear-gradient( in hsl shorter hue, white 30%, #91c9ff 59%, dodgerblue 60%);*/
-    background-size: contain;
-    background-clip: text;
-    h1{
-        /*color: transparent;*/
-        color: white;
-        font-size: 60px;
-    }
+h1{
+    color: white;
+    font-size: 60px;
 }
 
 #myicon{
@@ -39,4 +21,31 @@ html, body{
     position: absolute;
     background-color: white;
     left: 400px;
+}
+
+#containerImg{
+    max-width: 200px;
+    max-height: 200px;
+    border: 3px black dashed;
+    display: flex;
+    justify-content: center;
+}
+
+
+#myPreviewImg{
+    max-width: 190px;
+    max-height: 190px;
+}
+
+tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#tabela td:nth-child(odd){
+    border-right: 1px solid black;
+}
+
+#tabela td{
+    padding: 0px 25px 0px 25px;
+    background: none;
 }

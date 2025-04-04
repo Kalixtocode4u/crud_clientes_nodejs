@@ -1,13 +1,13 @@
-const clienteSchema = require('../schema/cliente.schema')
+const produtoSchema = require('../schema/produto.schema')
 const Ajv = require('ajv')
 const AjvFormats = require('ajv-formats')
 const ajv = new Ajv()
 
 AjvFormats(ajv)
 
-function validarCliente(req, res, next){
+function validarProduto(req, res, next){
     const data = req.body
-    const validacao = ajv.compile(clienteSchema)
+    const validacao = ajv.compile(produtoSchema)
     const validar = validacao(data)
     if(validar){
         next()
@@ -16,5 +16,4 @@ function validarCliente(req, res, next){
     }
 }
 
-module.exports = validarCliente;
-
+module.exports = validarProduto;

@@ -10,7 +10,7 @@ GET {{hostname}}/api/cliente
 
 ###
 
-GET {{hostname}}/api/cliente/2
+GET {{hostname}}/api/cliente/8
 
 ###
 
@@ -18,11 +18,11 @@ POST {{hostname}}/api/cliente
 Content-Type: application/json
 
 {
-    "nome": "Teste",
-    "email": "teste@email.com",
-    "senha": "123456",
-    "documento": "69.292.929/0001-91",
-    "telefone": "8237-2287"
+    "nome": "meuTeste",
+    "email": "meuteste@email.com",
+    "senha": "1234567",
+    "documento": "79.292.929/0001-91",
+    "telefone": "8247-2287"
 }
 
 ###

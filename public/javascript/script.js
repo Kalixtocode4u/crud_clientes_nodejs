@@ -2,15 +2,28 @@ function myFun(){
     console.log("Olá, Mundo!")
 }
 
-let inome = document.querySelector("#inome")
-let iemail = document.querySelector("#iemail")
-let isenha = document.querySelector("#isenha")
-let idocumento = document.querySelector("#idocumento")
-let itelefone = document.querySelector("#itelefone")
+window.addEventListener("paste", e => {
+    if(e.clipboardData.files.length > 0){
+        const fileInput = document.querySelector('#fileInput')
+        
+        fileInput.files = e.clipboardData.files;
 
-function deleteCliente(id){
-    const api = fetch("localhost:5000/api/cliente?id="+id, {
-        method: "DELETE"
-    })
-    console.log("deletado com sucesso")
+        if(e.clipboardData.files[0].type.startsWith("image/")){
+            setImage(e.clipboardData.files[0])
+        }else{
+            console.log("Erro falha do upload");
+        }
+
+    }else{
+        console.log("Erro nenhum arquivo");
+    }
+})
+
+function setImage(file){
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file)
+    fileReader.onload = () => {
+        document.querySelector('#myPreviewImg').src = fileReader.result
+    }
+    
 }

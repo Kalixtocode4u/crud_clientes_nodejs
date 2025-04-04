@@ -1,8 +1,8 @@
 module.exports = {
     type: "object",
-    properties:{
+    properties: {
         nome: {type: "string"},
-        email: {type: "string"},
+        email: {type: "string", format: "email"},
         senha: {type: "string"},
         documento: {type: "string"},
         telefone: {type: "string"}

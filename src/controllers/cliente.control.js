@@ -1,7 +1,7 @@
-const { where, Op } = require("sequelize");
+const { Op } = require("sequelize");
 const { Cliente } = require("../db/models")
 
-class clienteControl{
+class ClienteControl{
 
     // Metodos de Requisão
     static async getClienteList(req, res) {
@@ -10,10 +10,9 @@ class clienteControl{
     }
 
     static async getClienteById(req, res){
-        console.log(req.params.id)
         const cliente = await Cliente.findByPk(req.params.id)
         if(cliente){
-            res.json(cliente)
+            res.json({cliente: cliente})
         }else{
             res.status(400).json({mensagem: "cliente não encontrado!"})
         }
@@ -26,21 +25,10 @@ class clienteControl{
             res.redirect("/")
             //res.json({mensagem: "cliente cadastrado com sucesso com sucesso", usuarioId: cliente.id})
         }catch(err){
-            res.status(400).json({mensagem: "Falha interna para salvar o Cliente"})
+            res.status(400).send("msg: Falha interna para salvar o Cliente")
         }
     }
-
-    static async deleteCliente(req, res){
-        const cliente = await Cliente.findByPk(req.params.id)
-        if(cliente){
-            await cliente.destroy()
-            res.redirect('/cliente')
-            //res.json({mensagem: "cliente deletado com sucesso"})
-        }else{
-            res.status(400).json({mensagem: "Falha em deletar o Cliente"})
-        }
-    }
-
+    
     static async putCliente(req, res){
         const cliente = await Cliente.findByPk(req.params.id)
         if(cliente){
@@ -57,43 +45,54 @@ class clienteControl{
             res.status(400).json({mensagem: "Falha em atualizar o Cliente"})
         }
     }
+
+    static async deleteCliente(req, res){
+        const cliente = await Cliente.findByPk(req.params.id)
+        if(cliente){
+            await cliente.destroy()
+            res.redirect('/cliente')
+            //res.json({mensagem: "cliente deletado com sucesso"})
+        }else{
+            res.status(400).json({mensagem: "Falha em deletar o Cliente"})
+        }
+    }
     
     // renderização das paginas
     static async pageCliente(req, res){
         const clientes = await Cliente.findAll({raw: true})
-        res.render("./view/clientes/lista", {layout: 'layout.handlebars', clientes: clientes})
+        res.render("./view/clientes/lista", {layout: 'userlayout.handlebars', clientes: clientes})
     }
     
     static async criarCliente(req, res){
-        res.render("./view/clientes/criar", {layout: 'layout.handlebars'})
+        res.render("./view/clientes/criar", {layout: 'userlayout.handlebars'})
     }
     
     static async editarCliente(req, res){
         const cliente = await Cliente.findByPk(req.params.id, {raw: true})
-        res.render("./view/clientes/editar", {layout: 'layout.handlebars', cliente: cliente})
+        res.render("./view/clientes/editar", {layout: 'userlayout.handlebars', cliente: cliente})
     }
     
     static async detalhesCliente(req, res){
         const cliente = await Cliente.findByPk(req.params.id, {raw: true})
-        res.render("./view/clientes/detalhes", {layout: 'layout.handlebars', cliente: cliente})
+        res.render("./view/clientes/detalhes", {layout: 'userlayout.handlebars', cliente: cliente})
     }
 
     // outras requisições
-    static async login(req, res) {
+    static async logar(req, res) {
         res.render("./view/login", {layout: 'layout.handlebars'})
     }
 
-    static async logar(req, res){
+    static async login(req, res){
         const {email, senha} = req.body
-        const cliente = await Cliente.findOne({attributes: ['email','senha'], where: {email: email}})
+        const cliente = await Cliente.findOne({where: {email: email}, raw: true})
         if(cliente){
             if(senha === cliente.senha){
-                res.redirect("/cliente")
+                res.render("./view/mainpage", {layout: "userLayout.handlebars", cliente: cliente})
             }else{
                 res.status(400).json({msg: "Senha invalida"})
             }
         }else{
-            res.status(500).json({msg: "Falha do servidor"})
+            res.status(500).json({msg: "Erro do login, Usuario não encontrado"})
         }
     }
 
@@ -109,10 +108,10 @@ class clienteControl{
             //res.status(200).json({clientes: clientes})
             res.render("./view/clientes/lista", {layout: 'layout.handlebars', clientes})
         }else{
-            res.status(400).json({msg:"erro na pesquisa"})
+            res.status(400).json({msg:"erro na pesquisa, Cliente não encontrado"})
         }
     }
 
 }
 
-module.exports = clienteControl;
+module.exports = ClienteControl;

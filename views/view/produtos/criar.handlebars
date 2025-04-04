@@ -1,0 +1,41 @@
+<main>
+    <section class="container">
+        <a href="/produto" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <form action="/api/produto" method="POST" enctype="multipart/form-data">
+                <h2>Criar Produto</h2>
+
+                <label class="label-control m-3">Nome
+                    <input type="text" name="nome" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Cod. Produto
+                    <input type="number" name="codProduto" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Descrição
+                    <input type="text" name="descricao" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Preço Unitario
+                    <input type="number" name="precoUnitario" step="0.01" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Quantidade
+                    <input type="number" name="quantidade" class="form-control">
+                </label>
+
+                <label class="label-control">imagem
+                    <input type="file" name="foto" id="fileInput" class="form-control-file">
+                </label>
+                
+                <div id="containerImg">
+                    <img src="" id="myPreviewImg" alt="preview">
+                </div>
+
+                <button type="submit" class="btn btn-primary my-4">Criar</button>
+            </form>
+        </section>
+    </section>
+</main>
+<script src="/static/javascript/script.js"></script>

@@ -1,23 +1,25 @@
 const express = require('express')
 const router = express.Router()
-const clienteMid = require('../middleware/cliente.middleware')
-const clienteControl = require('../controllers/cliente.control')
+const ClienteControl = require('../controllers/cliente.control')
+const ClienteMiddleware = require('../middleware/cliente.middleware')
 
 // passando o middleware
-router.post('/', clienteMid)
+router.post('/', ClienteMiddleware)
 
 // chamadas da Api
-router.get('/', clienteControl.getClienteList)           // get todo os clientes
+router.get('/', ClienteControl.getClienteList)           // get todo os clientes
 
-router.get("/:id", clienteControl.getClienteById)        // get cliente por id
+router.get("/:id", ClienteControl.getClienteById)        // get cliente por id
 
-router.post('/', clienteControl.postCliente)             // post cliente
+router.post('/', ClienteControl.postCliente)             // post cliente
 
-router.post("/editar/:id", clienteControl.putCliente)    // put cliente
+router.post("/editar/:id", ClienteControl.putCliente)    // put cliente
+//router.put("/", ClienteControl.putCliente)
 
-router.get("/delete/:id", clienteControl.deleteCliente)  // delete cliente
+router.get("/delete/:id", ClienteControl.deleteCliente)  // delete cliente
+//router.delete('/', ClienteControl.deleteCliente)
 
 //
-router.post("/login", clienteControl.logar)
+//router.post("/login", ClienteControl.login)
 
 module.exports = router;

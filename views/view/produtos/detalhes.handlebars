@@ -1,0 +1,39 @@
+<main>
+    <section class="container"> 
+        <a href="/produto" class="btn btn-primary my-3">Voltar</a>
+        <section id="tabela" class="w-50 mx-0 container shadow rounded p-3">
+            <h2>Detalhes Produto</h2>
+            <div class="border-bottom border-1">
+                <img id="myPreviewImg" src="{{produto.foto}}" alt="produto foto">
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{produto.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Nome</td>
+                        <td>{{produto.nome}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cod. Produto</td>
+                        <td>{{produto.codProduto}}</td>
+                    </tr>
+                    <tr>
+                        <td>Descricao</td>
+                        <td>{{produto.descricao}}</td>
+                    </tr>
+                    <tr>
+                        <td>Preço Unitario</td>
+                        <td>{{produto.precoUnitario}}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantidade</td>
+                        <td>{{produto.quantidade}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>
