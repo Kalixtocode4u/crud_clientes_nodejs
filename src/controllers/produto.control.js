@@ -54,12 +54,13 @@ class ProdutoControl{
     static async putProduto(req, res){
         const produto = await Produto.findByPk(req.params.id)
         if(produto){
-            const { nome, codProduto, descricao, precoUnitario, quantidade } = req.body
+            const { nome, codProduto, descricao, precoUnitario, quantidade, clienteId } = req.body
             produto.nome = nome
             produto.codProduto = codProduto
             produto.descricao = descricao
             produto.precoUnitario = precoUnitario
             produto.quantidade = quantidade
+            produto.clienteId = clienteId
             await produto.save()
             res.redirect("/produto/detalhes/"+ produto.id)
             //res.json({mensagem: "produto atualiza com sucesso"})

@@ -14,15 +14,6 @@ h1{
     margin: 10px;
 }
 
-#circle{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    position: absolute;
-    background-color: white;
-    left: 400px;
-}
-
 #containerImg{
     max-width: 200px;
     max-height: 200px;

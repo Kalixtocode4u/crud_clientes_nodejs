@@ -2,11 +2,11 @@ module.exports = {
     type: "object",
     properties: {
         nome: {type: "string"},
-        email: {type: "string", format: "email"},
-        senha: {type: "string"},
+        nomeFantasia: {type: "string"},
         documento: {type: "string"},
-        telefone: {type: "string"}
+        telefone: {type: "string"},
+        tipoCliente: {type: "string"}
     },
-    required: ["nome", "email", "senha", "documento", "telefone"],
+    required: ["nome", "nomeFantasia", "documento", "telefone","tipoCliente"],
     additionalProperties: false,
 }

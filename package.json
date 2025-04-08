@@ -1,14 +1,15 @@
 {
   "name": "wwweb",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "aplicaçao web com sequelize",
   "keywords": [
     "mvc",
     "sequelize",
-    "web"
+    "web",
+    "backend"
   ],
   "license": "ISC",
-  "author": "Carlos",
+  "author": "Kalixtocode4u",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

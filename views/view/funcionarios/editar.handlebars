@@ -1,0 +1,31 @@
+<main>
+    <section class="container">
+        <a href="/funcionario" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <h2>Editar Cliente</h2>
+            <form action="/api/funcionario/editar/{{funcionario.id}}" method="POST">
+                <label class="label-control">Nome
+                    <input type="text" name="nome" value="{{funcionario.nome}}" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Email
+                    <input type="text" name="email" value="{{funcionario.email}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Senha
+                    <input type="text" name="senha" value="{{funcionario.senha}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Cargo
+                    <input type="text" name="documento" value="{{funcionario.cargo}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Nivel De Acesso
+                    <input type="text" name="telefone" value="{{funcionario.tipoDeAcesso}}" class="form-control">
+                </label>
+
+                <button type="submit" class="btn btn-primary m-2">Editar</button>
+            </form>
+        </section>
+    </section>
+</main>
