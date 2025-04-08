@@ -1,3 +1,4 @@
+const { Op } = require('sequelize')
 const { Produto } = require('../db/models')
 
 const URL_PATH = process.env.URL_PATH || ''
@@ -9,19 +10,6 @@ function getFullPathFilename(filename){
 
 class ProdutoControl{
 
-    // chamadas da api
-    static async getProdutoList(req, res){
-        const produtos = await Produto.findAll()
-        res.json({produtos: produtos})
-    }
-
-    static async getProdutoById(req, res){
-        const produto = await Produto.findBypk(req.params.id)
-        if(produto){
-            res.json({produto: produto})
-        }
-    }
-
     static async postProduto(req, res){
         try{
             const data = req.body
@@ -30,7 +18,6 @@ class ProdutoControl{
             }
             const produto = await Produto.create(data)
             res.redirect("/produto/detalhes/" + produto.id)
-            //res.json({produto: produto})
         }catch(err){
             res.status(400).send("msg: falha ao adicionar o produto\nerro: "+err)
         }
@@ -83,21 +70,27 @@ class ProdutoControl{
     // renderisação das paginas
     static async pageProduto(req, res){
         const produtos = await Produto.findAll({raw: true})
-        res.render("./view/produtos/lista", {layout: 'userlayout.handlebars', produtos: produtos})
+        res.render("./view/produtos/lista", {layout: 'userLayout.handlebars', produtos: produtos})
     }
     
     static async criarProduto(req, res){
-        res.render("./view/produtos/criar", {layout: 'userlayout.handlebars'})
+        res.render("./view/produtos/criar", {layout: 'userLayout.handlebars'})
     }
     
     static async editarProduto(req, res){
         const produto = await Produto.findByPk(req.params.id, {raw: true})
-        res.render("./view/produtos/editar", {layout: 'userlayout.handlebars', produto: produto})
+        res.render("./view/produtos/editar", {layout: 'userLayout.handlebars', produto: produto})
     }
     
     static async detalhesProduto(req, res){
         const produto = await Produto.findByPk(req.params.id, {raw: true})
-        res.render("./view/produtos/detalhes", {layout: 'userlayout.handlebars', produto: produto})
+        res.render("./view/produtos/detalhes", {layout: 'userLayout.handlebars', produto: produto})
+    }
+
+    // logica do estoque
+    static async estoque(req, res){
+        const produtos = await Produto.findAll({where: { quantidade:{ [Op.gt]: 0}}})
+        res.render("./view/estoque/estoque", {layout: 'userLayout.handlebars', produtos: produtos})
     }
 
 }

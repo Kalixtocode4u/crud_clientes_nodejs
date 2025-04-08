@@ -22,27 +22,22 @@ const fileFilter = (req, file, cb) => {
     if(ext.test(path.extname(file.originalname))){
         cb(null, true)
     }else{
-        return cb("arquivo não suportado. Apenas jpeg ou jpg são suportados")
+        return cb("arquivo não suportado. Apenas jpeg ou jpg e png são suportados")
     }
 }
 
 var upload = multer({storage: storage, fileFilter: fileFilter})
 
-router.post('/', autenticar, ProdutoMiddleware)
-router.post('/', autenticar, upload.single('foto'))
+router.post('/', ProdutoMiddleware)
+router.post('/', upload.single('foto'))
 
 // Chamadas da Api
-router.get('/', ProdutoControl.getProdutoList)
-
-router.get('/:id', ProdutoControl.getProdutoById)
-
 router.post('/', upload.single("foto"), ProdutoControl.postProduto)
+
 router.post('/:id/upload', upload.single("foto"), ProdutoControl.postProdutoImage)
 
 router.post('/editar/:id', ProdutoControl.putProduto)
-//router.put('/', ProdutoControl.putProduto)
 
 router.get('/delete/:id', ProdutoControl.deleteProduto)
-//router.delete('/', ProdutoControl.deleteProduto)
 
 module.exports = router

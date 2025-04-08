@@ -15,10 +15,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.engine("handlebars", engine({
-    allowProtoPropertiesByDefault: true,
-    allowProtoMethodsByDefault: true,
-}))
+app.engine("handlebars", engine({}))
 
 app.set("view engine", "handlebars")
 app.set("views", "./views")
@@ -31,14 +28,16 @@ app.use("/api/funcionario", funcionarioRoute)
 
 app.use("/", indexRoute)
 
-app.use(function(err, req, res, next){
+// Error Handle desativado por enquanto
+/*app.use(function(err, req, res, next){
     res.status(500)
-    res.render("./view/notFound", {err: err})
-})
+    res.render("./view/notFound", {layout: 'layout.handlebars', err: err.message})
+})*/
 
 app.listen(5000, () => {
     console.log("Servidor aberto na porta 5000")
 })
+
 
 // npm i bcrypt
 
@@ -49,20 +48,20 @@ app.listen(5000, () => {
 // um cliente pode ser um fonecerdor, ditribuidora, mercado, tambem pode ser um usuario do sistema
 
 // PRODUTO
-// npx sequelize-cli model:generate --name Produto --attributes nome:string,codProduto:integer,descricao:string,precoUnitario:decimal,quantidade:integer,clienteId:integer
+// npx sequelize-cli model:generate --name Produto --attributes nome:string,codProduto:integer,descricao:string,precoUnitario:decimal,clienteId:integer,foto:string
 // um produto pode ter varios fornecedores ou ligado a um fornecedor
 
 // npx sequelize-cli db:migrate
 
 // FUNCIONARIO
 // npx sequelize-cli model:generate --name Funcionario --attributes nome:string,email:string,senha:string,cargo:string,tipoDeAcesso:string
+// trocar tipo de acesso para nivel de acesso                                                                          nivelDeAcesso:string
 // os funcionarios serão os usuarios do sistema, cada cargo do funcionario pode tipo de acesso diferente do sistema
 // por exemplo odiretor geral pode ter total acesso do sistema, o Encarregado do setor so pode ver os produtos do estoque assim por diante
-// trocar tipo de acesso para nivel de acesso
 
 // VENDA
-// npx sequelize-cli model:generate --name vendas --attributes idPedido:integer,impostos:decimal,total:decimal
-// relatorio
+// npx sequelize-cli model:generate --name vendas --attributes idPedido:integer,impostos:decimal,margem:decimal,total:decimal
+// relatorios
 
 // ESTOQUE
 // npx sequelize-cli model:generate --name estoque --attributes idProduto:integer,quantidade:integer

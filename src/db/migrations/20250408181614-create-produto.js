@@ -19,13 +19,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       precoUnitario: {
-        type: Sequelize.DECIMAL(10,2)
-      },
-      quantidade: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       clienteId: {
         type: Sequelize.INTEGER
+      },
+      foto: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

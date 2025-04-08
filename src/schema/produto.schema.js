@@ -4,9 +4,10 @@ module.exports = {
         nome: {type: 'string'},
         codProduto: {type: 'integer'},
         descricao: {type: 'string'},
-        precoUnitario: {type: 'decimal'},
-        quantidade: {type: 'integer'}
+        precoUnitario: {type: 'number'},
+        clienteId: {type: 'integer'},
+        foto: {type: 'string'},
     },
-    required: ["nome", "codProduto", "descricao", "precoUnitario", "quantidade"],
+    required: ["nome", "codProduto", "descricao", "precoUnitario", "clienteId"],
     additionalProperties: false
 }

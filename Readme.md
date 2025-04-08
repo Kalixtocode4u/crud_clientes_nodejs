@@ -1,6 +1,6 @@
-# **Projeto mvc nodejs backend**
+# **Projeto mvc node.js backend**
 ## **Sobre**
-Esse é num projeto simples de um Sistema ERP Online
+Esse é num projeto simples de um Sistema gestão Online Simples
 
 
 ## As tecnologias Usadas
@@ -9,7 +9,7 @@ Esse é num projeto simples de um Sistema ERP Online
 |:---|----:|
 | express | framework express para aplicações backend|
 | sequelize | orm (object relational mapping) para o node|
-| mariadb | driver do mariadb|
+| mariadb | driver do MariaDB|
 | ajv | json validador|
 | ajv-formats | biblioteca que tem os formatos de regex para validação|
 | handlebars | motor de template|
@@ -38,11 +38,14 @@ Esse é num projeto simples de um Sistema ERP Online
 
 - financeiro deve ter os pedidos finalizados, produtos vendidos, registra transação, talvez simular gastos
 
-### variveis de ambiente
+## .ENV
+Crie o arquivo .env.
+coloque as seguintes variaveis:
 
 |NOME|OBRIGATORIO|
 |:----|----:|
 |ACCESS_TOKEM| NÃO OBRIGATORIO POR ENQUANTO|
 |DB_URL|NÃO|
+
 
 🖋 Kalixtocode4u

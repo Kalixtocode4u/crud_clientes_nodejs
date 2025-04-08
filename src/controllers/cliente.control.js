@@ -32,12 +32,13 @@ class ClienteControl{
     static async putCliente(req, res){
         const cliente = await Cliente.findByPk(req.params.id)
         if(cliente){
-            const {nome, email, senha, documento, telefone} = req.body
+            const {nome, nomefantasia, documento, telefone, endereco, tipoCliente} = req.body
             cliente.nome = nome
-            cliente.email = email
-            cliente.senha = senha
+            cliente.nomefantasia = nomefantasia
             cliente.documento = documento
             cliente.telefone = telefone
+            cliente.endereco = endereco
+            cliente.tipoCliente = tipoCliente
             await cliente.save()
             res.redirect('/cliente')
             //res.json({mensagem: "cliente Atualizado com sucesso"})

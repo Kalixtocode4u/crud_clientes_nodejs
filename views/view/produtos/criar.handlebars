@@ -2,7 +2,7 @@
     <section class="container">
         <a href="/produto" class="btn btn-primary mx-0 my-3">Voltar</a>
         <section class="container shadow p-4 rounded">
-            <form action="/api/produto" method="POST" enctype="multipart/form-data">
+            <form action="/api/produto" method="POST">
                 <h2>Criar Produto</h2>
 
                 <label class="label-control m-3">Nome
@@ -21,11 +21,11 @@
                     <input type="number" name="precoUnitario" step="0.01" class="form-control">
                 </label>
 
-                <label class="label-control m-3">Quantidade
-                    <input type="number" name="quantidade" class="form-control">
+                <label class="label-control m-3">idCliente
+                    <input type="number" name="clienteId" class="form-control">
                 </label>
 
-                <label class="label-control">imagem
+                <label class="label-control">Foto
                     <input type="file" name="foto" id="fileInput" class="form-control-file">
                 </label>
                 

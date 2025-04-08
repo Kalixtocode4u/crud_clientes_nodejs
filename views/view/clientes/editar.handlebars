@@ -3,13 +3,13 @@
         <a href="/cliente" class="btn btn-primary mx-0 my-3">Voltar</a>
         <section class="container shadow p-4 rounded">
             <h2>Editar Cliente</h2>
-            <form action="http://localhost:5000/api/cliente/editar/{{cliente.id}}" method="POST">
+            <form action="  /api/cliente/editar/{{cliente.id}}" method="POST">
                 <label class="label-control">Nome
                     <input type="text" name="nome" value="{{cliente.nome}}" class="form-control">
                 </label>
                 
-                <label class="label-control m-3">Email
-                    <input type="text" name="email" value="{{cliente.nomeFantasia}}" class="form-control">
+                <label class="label-control m-3">Nome Fantasia
+                    <input type="text" name="nomefantasia" value="{{cliente.nomefantasia}}" class="form-control">
                 </label>
 
                 <label class="label-control m-3">Documento
@@ -21,11 +21,11 @@
                 </label>
 
                 <label class="label-control m-3">Endereço
-                    <input type="text" name="senha" value="{{cliente.endereco}}" class="form-control">
+                    <input type="text" name="endereco" value="{{cliente.endereco}}" class="form-control">
                 </label>
 
                 <label class="label-control m-3">Tipo De Cliente
-                    <input type="text" name="senha" value="{{cliente.tipoDeCliente}}" class="form-control">
+                    <input type="text" name="tipoCliente" value="{{cliente.tipoCliente}}" class="form-control">
                 </label>
 
                 <button type="submit" class="btn btn-primary m-2">Editar</button>

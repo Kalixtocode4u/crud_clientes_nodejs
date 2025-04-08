@@ -11,13 +11,7 @@ router.get("/", (req, res) => {
 
 router.post('/home', FuncionarioControl.login)
 
-/*
-router.get("/*", (req, res) => {
-    res.render("./view/notFound", {layout: 'layout.handlebars'})
-})*/
-
-router.get('/auth')
-
+// paginas de login
 router.get('/login', FuncionarioControl.logar)
 router.get('/cadastro', FuncionarioControl.cadastro)
 
@@ -40,6 +34,9 @@ router.get("/produto/criar", ProdutoControl.criarProduto)
 router.get("/produto/editar/:id", ProdutoControl.editarProduto)
 
 router.get("/produto/detalhes/:id", ProdutoControl.detalhesProduto)
+
+// apagina de estoque
+router.get('/estoque', ProdutoControl.estoque)
 
 // pagina do funcionarios
 router.get("/funcionario", FuncionarioControl.pageFuncionario)
