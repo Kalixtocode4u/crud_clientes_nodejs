@@ -3,6 +3,7 @@ const router = express.Router()
 const ClienteControl = require('../controllers/cliente.control')
 const ProdutoControl = require('../controllers/produto.control')
 const FuncionarioControl = require('../controllers/funcionario.control')
+const EstoqueControl = require('../controllers/estoque.control')
 
 
 router.get("/", (req, res) => {
@@ -37,8 +38,8 @@ router.get("/produto/editar/:id", ProdutoControl.editarProduto)
 
 router.get("/produto/detalhes/:id", ProdutoControl.detalhesProduto)
 
-// apagina de estoque
-router.get('/estoque', ProdutoControl.estoque)
+// pagina de estoque
+router.get('/estoque', EstoqueControl.getEstoque)
 
 // pagina do funcionarios
 router.get("/funcionario", FuncionarioControl.pageFuncionario)

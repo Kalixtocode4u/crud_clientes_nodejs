@@ -25,7 +25,7 @@ class ClienteControl{
             res.redirect("/")
             //res.json({mensagem: "cliente cadastrado com sucesso com sucesso", usuarioId: cliente.id})
         }catch(err){
-            res.status(400).send("msg: Falha interna para salvar o Cliente")
+            res.status(400).send("msg: Falha interna para salvar o Cliente\nerr: " + err)
         }
     }
     
@@ -43,7 +43,7 @@ class ClienteControl{
             res.redirect('/cliente')
             //res.json({mensagem: "cliente Atualizado com sucesso"})
         }else{
-            res.status(400).json({mensagem: "Falha em atualizar o Cliente"})
+            res.status(404).json({mensagem: "Cliente não encontrado"})
         }
     }
 
@@ -54,7 +54,7 @@ class ClienteControl{
             res.redirect('/cliente')
             //res.json({mensagem: "cliente deletado com sucesso"})
         }else{
-            res.status(400).json({mensagem: "Falha em deletar o Cliente"})
+            res.status(404).send("msg: Cliente Não Encontrado")
         }
     }
     

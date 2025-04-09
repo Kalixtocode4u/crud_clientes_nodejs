@@ -1,0 +1,29 @@
+@host = localhost
+@port = 5000
+@hostname = http://{{host}}:{{port}}
+
+GET http://localhost:5000/
+
+###
+
+GET {{hostname}}/api/produto
+
+###
+
+GET {{hostname}}/api/produto/8
+
+###
+
+POST {{hostname}}/api/produto
+Content-Type: application/json
+
+{
+    "nome": "Teste",
+    "codProduto": 489459,
+    "descricao": "testando...",
+    "precoUnitario": 18.99,
+    "clienteId": 1,
+    "foto": ""
+}
+
+###

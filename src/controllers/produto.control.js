@@ -94,10 +94,6 @@ class ProdutoControl{
     }
 
     // logica do estoque
-    static async estoque(req, res){
-        const produtos = await Produto.findAll({where: { quantidade:{ [Op.gt]: 0}}})
-        res.render("./view/estoque/estoque", {layout: 'userLayout.handlebars', produtos: produtos})
-    }
 
 }
 
