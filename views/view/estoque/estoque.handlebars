@@ -17,10 +17,10 @@
                 {{#each produtos}}
                 <tr class="p-2">
                     <td class="p-2">{{this.id}}</td>
-                    <td class="p-2">{{this.nome}}</td>
-                    <td class="p-2">{{this.codProduto}}</td>
-                    <td class="p-2">{{this.descricao}}</td>
-                    <td class="p-2">{{this.precoUnitario}}</td>
+                    <td class="p-2">{{this.Produto.nome}}</td>
+                    <td class="p-2">{{this.Produto.codProduto}}</td>
+                    <td class="p-2">{{this.Produto.descricao}}</td>
+                    <td class="p-2">{{this.Produto.precoUnitario}}</td>
                     <td class="p-2">{{this.quantidade}}</td>
                     <td class="p-2">
                         <a href="/api/produto/delete/{{this.id}}" class="btn btn-danger">Remover</a>
@@ -29,6 +29,27 @@
                 {{/each}}
             </tbody>
         </table>
-        <a href="#" class="btn btn-dark m-3">adicionar produto</a>
+        <a href="#" class="btn btn-dark m-3" data-bs-toggle="modal" data-bs-target="#estoqueModal">adicionar produto</a>
+    </section>
+    <section class="modal fade" tab-index="-1" id="estoqueModal" aria-labelledby="estoqueModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Adicionar Produto para o estoque</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Meu Modal Teste</p>
+                    <form action="/api/estoque" method="post">
+                        <label class="label-control"> escolha o Produto
+                            <input type="text" class="form-control">
+                        </label>
+
+                        <label></label>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">fechar</button>
+                        <button type="button" class="btn btn-success">Concluir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 </main>

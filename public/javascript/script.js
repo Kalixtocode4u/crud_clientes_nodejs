@@ -1,7 +1,3 @@
-function myFun(){
-    console.log("Olá, Mundo!")
-}
-
 window.addEventListener("paste", e => {
     if(e.clipboardData.files.length > 0){
         const fileInput = document.querySelector('#fileInput')

@@ -10,6 +10,10 @@ router.get("/", (req, res) => {
     res.render("./view/home", {layout: 'layout.handlebars'})
 })
 
+router.get("/teste", (req, res) => {
+    res.render("./view/teste", {layout: 'layout.handlebars'})
+})
+
 router.post('/home', FuncionarioControl.login)
 
 // paginas de login
@@ -39,7 +43,7 @@ router.get("/produto/editar/:id", ProdutoControl.editarProduto)
 router.get("/produto/detalhes/:id", ProdutoControl.detalhesProduto)
 
 // pagina de estoque
-router.get('/estoque', EstoqueControl.getEstoque)
+router.get('/estoque', EstoqueControl.estoque)
 
 // pagina do funcionarios
 router.get("/funcionario", FuncionarioControl.pageFuncionario)

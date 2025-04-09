@@ -6,24 +6,20 @@ GET http://localhost:5000/
 
 ###
 
-GET {{hostname}}/api/produto
+GET {{hostname}}/api/estoque
 
 ###
 
-GET {{hostname}}/api/produto/8
+GET {{hostname}}/api/estoque/8
 
 ###
 
-POST {{hostname}}/api/produto
+POST {{hostname}}/api/estoque
 Content-Type: application/json
 
 {
-    "nome": "Teste",
-    "codProduto": 489459,
-    "descricao": "testando...",
-    "precoUnitario": 18.99,
-    "clienteId": 1,
-    "foto": ""
+    "idProduto": 1,
+    "quantidade": "40"
 }
 
 ###
