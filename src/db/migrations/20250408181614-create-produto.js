@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       precoUnitario: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       clienteId: {
         type: Sequelize.INTEGER

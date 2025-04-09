@@ -5,7 +5,7 @@ const URL_PATH = process.env.URL_PATH || ''
 
 //Metodos
 function getFullPathFilename(filename){
-    return `${URL_PATH}/static/uploads/${filename.filename}`
+    return `/static/uploads/${filename.filename}`
 }
 
 class ProdutoControl{
@@ -13,6 +13,7 @@ class ProdutoControl{
     static async postProduto(req, res){
         try{
             const data = req.body
+            var foto
             if(req.file){
                 data.foto = getFullPathFilename(req.file)
             }
@@ -24,7 +25,7 @@ class ProdutoControl{
     }
 
     static async postProdutoImage(req, res){
-        const produto = await Produto.findByPk(req.params,id)
+        const produto = await Produto.findByPk(req.params.id)
         try{
             if(produto){
                 produto.foto = getFullPathFilename(req.file)
@@ -81,6 +82,11 @@ class ProdutoControl{
         const produto = await Produto.findByPk(req.params.id, {raw: true})
         res.render("./view/produtos/editar", {layout: 'userLayout.handlebars', produto: produto})
     }
+
+    //static async uploadProduto(req, res){
+    //    const produto = await Produto.findByPk(req.params.id, {raw: true})
+    //    res.render("./view/produtos/upload", {layout: 'userLayout.handlebars', produto: produto})
+    //}
     
     static async detalhesProduto(req, res){
         const produto = await Produto.findByPk(req.params.id, {raw: true})

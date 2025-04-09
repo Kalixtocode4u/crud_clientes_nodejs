@@ -31,12 +31,16 @@ Esse é num projeto simples de um Sistema gestão Online Simples
 - [x] Melhorar a modela do banco de dados
 - [x] Digramar o sistema
 - [x] handle error
+- [ ] corrigir os problemas do middleware
+- [ ] implementar o json web tokem no login (Authorization)
 
 ## notas
 
 - Os Clientes podem ser uma empresa (ditrubuidoras, fornecedoras) ou um cliente (mercadinho, loja, mercenaria)
 
 - financeiro deve ter os pedidos finalizados, produtos vendidos, registra transação, talvez simular gastos
+
+- deno é mis seguro que o node
 
 ## .ENV
 Crie o arquivo .env.

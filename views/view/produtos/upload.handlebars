@@ -1,0 +1,36 @@
+<main>
+    <form action="/api/produto/{{produto.id}}/upload" method="post" enctype="multipart/form-data">
+    
+        <label class="label-control">Nome
+            <input type="text" name="nome" value="{{produto.nome}}">
+        </label>
+
+        <label class="label-control m-3">Cod. Produto
+            <input type="number" name="codProduto" class="form-control">
+        </label>
+
+        <label class="label-control m-3">Descrição
+            <input type="text" name="descricao" class="form-control">
+        </label>
+
+        <label class="label-control m-3">Preço Unitario
+            <input type="number" name="precoUnitario" step="0.01" class="form-control">
+        </label>
+
+        <label class="label-control m-3">id do Cliente
+            <input type="number" name="clienteId" class="form-control">
+        </label>
+        
+        <label class="label-control">Foto
+            <input type="file" name="foto" id="fileInput" class="form-control">
+        </label>
+        
+        <div id="containerImg">
+            <img src="" id="myPreviewImg" alt="preview">
+        </div>
+        
+        <button type="submit" class="btn btn-success">Enviar</button>
+    
+    </form>
+</main>
+<script src="/static/javascript/script.js"></script>

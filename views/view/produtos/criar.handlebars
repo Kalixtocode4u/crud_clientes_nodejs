@@ -2,9 +2,8 @@
     <section class="container">
         <a href="/produto" class="btn btn-primary mx-0 my-3">Voltar</a>
         <section class="container shadow p-4 rounded">
-            <form action="/api/produto" method="POST">
-                <h2>Criar Produto</h2>
-
+            <h2>Criar Produto</h2>
+            <form action="/api/produto" method="post" enctype="multipart/form-data">
                 <label class="label-control m-3">Nome
                     <input type="text" name="nome" class="form-control">
                 </label>
@@ -21,7 +20,7 @@
                     <input type="number" name="precoUnitario" step="0.01" class="form-control">
                 </label>
 
-                <label class="label-control m-3">idCliente
+                <label class="label-control m-3">id do Cliente
                     <input type="number" name="clienteId" class="form-control">
                 </label>
 

@@ -33,6 +33,8 @@ router.get("/produto/criar", ProdutoControl.criarProduto)
 
 router.get("/produto/editar/:id", ProdutoControl.editarProduto)
 
+//router.get("/produto/editar/:id/upload", ProdutoControl.uploadProduto)
+
 router.get("/produto/detalhes/:id", ProdutoControl.detalhesProduto)
 
 // apagina de estoque

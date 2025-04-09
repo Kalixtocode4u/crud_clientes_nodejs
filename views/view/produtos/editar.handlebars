@@ -3,13 +3,13 @@
         <a href="/produto" class="btn btn-primary mx-0 my-3">Voltar</a>
         <section class="container shadow p-4 rounded">
             <h2>Editar Produto</h2>
-            <form action="/api/produto/editar/{{produto.id}}" method="POST">
+            <form action="/api/produto/editar/{{produto.id}}" method="POST" enctype="multipart/form-data">
                 <label class="label-control">Nome
                     <input type="text" name="nome" value="{{produto.nome}}" class="form-control">
                 </label>
                 
                 <label class="label-control m-3">Cod. Produto
-                    <input type="text" name="codProduto" value="{{produto.codProduto}}" class="form-control">
+                    <input type="number" name="codProduto" value="{{produto.codProduto}}" class="form-control">
                 </label>
 
                 <label class="label-control m-3">descrição
@@ -17,7 +17,7 @@
                 </label>
 
                 <label class="label-control m-3">Preço Unitario
-                    <input type="text" name="precoUnitario" value="{{produto.precoUnitario}}" class="form-control">
+                    <input type="number" name="precoUnitario" value="{{produto.precoUnitario}}" step="0.01" class="form-control">
                 </label>
 
                 <label class="label-control m-3">Cliente Id
@@ -29,3 +29,4 @@
         </section>
     </section>
 </main>
+<script src="/static/javascript/script.js"></script>

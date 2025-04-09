@@ -12,10 +12,15 @@ const app = express()
 const bodyParser = require('body-parser')
 
 app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.engine("handlebars", engine({}))
+app.engine("handlebars", engine({
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true,
+}))
 
 app.set("view engine", "handlebars")
 app.set("views", "./views")
@@ -28,11 +33,11 @@ app.use("/api/funcionario", funcionarioRoute)
 
 app.use("/", indexRoute)
 
-// Error Handle desativado por enquanto
-/*app.use(function(err, req, res, next){
-    res.status(500)
-    res.render("./view/notFound", {layout: 'layout.handlebars', err: err.message})
-})*/
+// Error Handler desativado por enquanto
+//app.use(function(err, req, res, next){
+//    res.status(500)
+//    res.render("./view/notFound", {layout: 'layout.handlebars', err: err.message})
+//})
 
 app.listen(5000, () => {
     console.log("Servidor aberto na porta 5000")
