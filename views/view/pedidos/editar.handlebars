@@ -1,0 +1,23 @@
+<main>
+    <section class="container">
+        <a href="/pedido" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <h2>Editar Pedido</h2>
+            <form action="  /api/pedido/editar/{{pedido.id}}" method="POST">
+                <label class="label-control">Data
+                    <input type="text" name="data" value="{{pedido.data}}" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Status
+                    <input type="date" name="status" value="{{pedido.status}}" class="form-control">
+                </label>
+
+                <label class="label-control m-3">Produtos
+                    <input type="text" name="produtos" value="{{pedido.produtos}}" class="form-control">
+                </label>
+
+                <button type="submit" class="btn btn-primary m-2">Editar</button>
+            </form>
+        </section>
+    </section>
+</main>

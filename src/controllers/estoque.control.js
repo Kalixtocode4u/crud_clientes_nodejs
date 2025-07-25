@@ -3,7 +3,8 @@ const { Produto, estoque } = require('../db/models')
 class EstoqueControl{
     static async estoque(req, res){
         const produtos = await estoque.findAll({include: {model: Produto}, raw: true, nest: true})
-        res.render("./view/estoque/estoque", {layout: 'userLayout.handlebars', produtos: produtos})
+        const produto = await Produto.findAll({raw: true})
+        res.render("./view/estoque/estoque", {layout: 'userLayout.handlebars', produtos: produtos, produto: produto})
     }
 
     static async getTodo(req, res){
@@ -14,9 +15,9 @@ class EstoqueControl{
     static async adicionarProduto(req, res){
         try{
             const data = req.body
-            const produto = await estoque.create(data)
-            //res.redirect("/estoque")
-            res.json({msg: "Produto adicionado com sucesso", produto: produto})
+            /*const produto = */await estoque.create(data)
+            res.redirect("/estoque")
+            //res.json({msg: "Produto adicionado com sucesso", produto: produto})
         }catch(err){
             res.status(400).send("msg: Falha interna para adicionar o produto ao estoque\nerr: " + err)
         }

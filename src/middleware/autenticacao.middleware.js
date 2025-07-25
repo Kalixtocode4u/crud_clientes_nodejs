@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 function autenticar(req, res, next){
-    const auth = auth && req.header['authorization']
+    const auth = req.header['authorization']
     const tokem = auth && auth.split('')[1]
     if(!tokem){
         return res.sendStatus(401)

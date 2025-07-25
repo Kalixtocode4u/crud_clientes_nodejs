@@ -1,5 +1,7 @@
 const { Op } = require("sequelize");
 const { Funcionario } = require("../db/models")
+const bcrypt = require('bcrypt')
+const jweb = require('jsonwebtoken')
 
 class FuncionarioControl{
 
@@ -20,12 +22,17 @@ class FuncionarioControl{
 
     static async postFuncionario(req, res){
         try{
-            const data = req.body
-            const funcionario = await Funcionario.create(data)
-            res.redirect("/")
-            //res.json({mensagem: "funcionario cadastrado com sucesso com sucesso", usuarioId: funcionario.id})
+            const {nome, email, senha, cargo, tipoDeAcesso} = req.body
+            
+            const sal = await bcrypt.genSalt(10)
+            const senhacriptografada = await bcrypt.hash(senha, sal)
+            
+            const data = {nome: nome, email: email, senha: senhacriptografada, cargo: cargo, tipoDeAcesso: tipoDeAcesso}
+            await Funcionario.create(data)
+
+            res.redirect("/funcionario")
         }catch(err){
-            res.status(400).send("msg: Falha interna para salvar o Funcionario")
+            res.status(500).send("msg: Falha interna para salvar o Funcionario")
         }
     }
     
@@ -33,9 +40,13 @@ class FuncionarioControl{
         const funcionario = await Funcionario.findByPk(req.params.id)
         if(funcionario){
             const {nome, email, senha, cargo, tipoDeAcesso} = req.body
+            
+            const sal = await bcrypt.genSalt(10)
+            const senhacriptografada = await bcrypt.hash(senha, sal)
+            
             funcionario.nome = nome
             funcionario.email = email
-            funcionario.senha = senha
+            funcionario.senha = senhacriptografada
             funcionario.cargo = cargo
             funcionario.tipoDeAcesso = tipoDeAcesso
             await funcionario.save()
@@ -53,7 +64,7 @@ class FuncionarioControl{
             res.redirect('/funcionario')
             //res.json({mensagem: "funcionario deletado com sucesso"})
         }else{
-            res.status(400).json({mensagem: "Falha em deletar o Funcionario"})
+            res.status(404).json({mensagem: "Funcionario não encontrado"})
         }
     }
     
@@ -86,13 +97,19 @@ class FuncionarioControl{
         const {email, senha} = req.body
         const funcionario = await Funcionario.findOne({where: {email: email}, raw: true})
         if(funcionario){
-            if(senha === funcionario.senha){
-                res.render("./view/mainpage", {layout: "userLayout.handlebars", funcionario: funcionario})
+            if(bcrypt.compare(senha, funcionario.senha)){
+                
+                const payload = {sub: funcionario.id, iss: 'crud-cliente', aud: 'crud', email: funcionario.email}
+                const token = jweb.sign(payload, process.env.ACCESS_TOKEN, {expiresIn: '2h'})
+
+                //localStorage.setItem()
+                res.cookie("tokem", `bearer ${token}`, {expires: new Date(Date.now() + 1 * 3600000)})
+                res.render("./view/mainpage", {layout: "userLayout.handlebars", accessToken: token})
             }else{
-                res.status(400).json({msg: "Senha invalida"})
+                res.status(403).json({msg: "Senha invalida"})
             }
         }else{
-            res.status(500).json({msg: "Erro do login, Usuario não encontrado"})
+            res.status(404).json({msg: "Usuario não encontrado"})
         }
     }
 
@@ -108,7 +125,7 @@ class FuncionarioControl{
             //res.status(200).json({funcionarios: funcionarios})
             res.render("./view/funcionarios/lista", {layout: 'layout.handlebars', funcionarios})
         }else{
-            res.status(400).json({msg:"erro na pesquisa, Funcionario não encontrado"})
+            res.status(404).json({msg:"erro na pesquisa, Funcionario não encontrado"})
         }
     }
 

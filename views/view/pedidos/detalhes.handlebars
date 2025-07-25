@@ -1,0 +1,32 @@
+<main>
+    <section class="container"> 
+        <a href="/pedido" class="btn btn-primary my-3">Voltar</a>
+        <section id="tabela" class="w-50 mx-0 container shadow rounded p-3">
+            <h2>Detalhes Pedido</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{pedido.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Data</td>
+                        <td>{{pedido.data}}</td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>{{pedido.status}}</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos</td>
+                        <td>{{pedido.produtos}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{pedido.totalPedido}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>

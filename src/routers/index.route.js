@@ -4,6 +4,7 @@ const ClienteControl = require('../controllers/cliente.control')
 const ProdutoControl = require('../controllers/produto.control')
 const FuncionarioControl = require('../controllers/funcionario.control')
 const EstoqueControl = require('../controllers/estoque.control')
+const PedidoControl = require('../controllers/pedido.control')
 
 
 router.get("/", (req, res) => {
@@ -38,8 +39,6 @@ router.get("/produto/criar", ProdutoControl.criarProduto)
 
 router.get("/produto/editar/:id", ProdutoControl.editarProduto)
 
-//router.get("/produto/editar/:id/upload", ProdutoControl.uploadProduto)
-
 router.get("/produto/detalhes/:id", ProdutoControl.detalhesProduto)
 
 // pagina de estoque
@@ -54,5 +53,14 @@ router.get("/funcionario/editar/:id", FuncionarioControl.editarFuncionario)
 
 router.get("/funcionario/detalhes/:id", FuncionarioControl.detalhesFuncionario)
 
+// pagina do Pedido
+
+router.get("/pedido", PedidoControl.pagePedido)
+
+router.get("/pedido/criar", PedidoControl.criarPedido)
+
+router.get("/pedido/editar/:id", PedidoControl.editarPedido)
+
+router.get("/pedido/detalhes/:id", PedidoControl.detalhePedido)
 
 module.exports = router;

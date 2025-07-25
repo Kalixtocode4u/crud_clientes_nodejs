@@ -32,8 +32,8 @@ const fileFilter = (req, file, cb) => {
 
 var upload = multer({storage: storage, fileFilter: fileFilter})
 
-//router.post('/', ProdutoMiddleware)
-//router.post('/', upload.single('foto'))
+router.post('/', ProdutoMiddleware)
+router.post('/', upload.single('foto'))
 
 // Chamadas da Api
 router.post('/', upload.single("foto"), ProdutoControl.postProduto)

@@ -23,7 +23,7 @@
                     <td class="p-2">{{this.Produto.precoUnitario}}</td>
                     <td class="p-2">{{this.quantidade}}</td>
                     <td class="p-2">
-                        <a href="/api/produto/delete/{{this.id}}" class="btn btn-danger">Remover</a>
+                        <a href="/api/estoque/delete/{{this.id}}" class="btn btn-danger">Remover</a>
                     </td>
                 </tr>
                 {{/each}}
@@ -38,15 +38,21 @@
                     <h2>Adicionar Produto para o estoque</h2>
                 </div>
                 <div class="modal-body">
-                    <p>Meu Modal Teste</p>
                     <form action="/api/estoque" method="post">
-                        <label class="label-control"> escolha o Produto
-                            <input type="text" class="form-control">
-                        </label>
+                        <label class="label-control m-3"> escolha o Produto
+                            <select name="idProduto" class="form-select">
+                                {{#each produto}}
+                                <option value="{{this.id}}">{{this.nome}}</option>
+                                {{/each}}
+                            </select>
+                        </label><br>
 
-                        <label></label>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">fechar</button>
-                        <button type="button" class="btn btn-success">Concluir</button>
+                        <label class="label-control m-3">Quantidade
+                            <input type="number" name="quantidade" class="form-control">
+                        </label><br>
+
+                        <button type="button" class="btn btn-danger m-3" data-bs-dismiss="modal">fechar</button>
+                        <button type="submit" class="btn btn-success m-3">Concluir</button>
                     </form>
                 </div>
             </div>

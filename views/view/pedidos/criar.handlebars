@@ -1,0 +1,24 @@
+<main>
+    <section class="container">
+        <a href="/pedido" class="btn btn-primary mx-0 my-3">Voltar</a>
+        <section class="container shadow p-4 rounded">
+            <form action="/api/pedido" method="POST">
+                <h2>Criar Pedido</h2>
+                <label class="label-control m-3">Data
+                    <input type="date" name="nome" class="form-control">
+                </label>
+                
+                <label class="label-control m-3">Status  
+                    <input type="text" name="status" class="form-control">
+                </label>
+
+
+                <label class="label-control m-3">Produtos
+                    <textarea name="produtos" class="form-control" cols="30" rows="10"></textarea>
+                </label>
+
+                <button type="submit" class="btn btn-primary my-4">Criar</button>
+            </form>
+        </section>
+    </section>
+</main>

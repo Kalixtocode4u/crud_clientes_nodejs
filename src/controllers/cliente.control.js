@@ -22,7 +22,7 @@ class ClienteControl{
         try{
             const data = req.body
             const cliente = await Cliente.create(data)
-            res.redirect("/")
+            res.redirect("/cliente")
             //res.json({mensagem: "cliente cadastrado com sucesso com sucesso", usuarioId: cliente.id})
         }catch(err){
             res.status(400).send("msg: Falha interna para salvar o Cliente\nerr: " + err)
@@ -75,7 +75,11 @@ class ClienteControl{
     
     static async detalhesCliente(req, res){
         const cliente = await Cliente.findByPk(req.params.id, {raw: true})
-        res.render("./view/clientes/detalhes", {layout: 'userlayout.handlebars', cliente: cliente})
+        if(cliente){
+            res.render("./view/clientes/detalhes", {layout: 'userlayout.handlebars', cliente: cliente})
+        }else{
+            res.status(404).send("msg: Cliente Não Encontrado")
+        }
     }
 
     // outras requisições
